@@ -5,6 +5,9 @@ const blogRouter = require("./routes/blog");
 const authRouter = require("./routes/user");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const Blog = require("./Models/blogSchema");
+const multer = require("multer");
+const path = require("path");
 
 const app = express();
 dotenv.config();
@@ -16,6 +19,8 @@ const PORT = 5718;
 //middlewares
 
 app.use(bodyParser.json());
+
+//multer
 
 //Routes
 

@@ -5,5 +5,79 @@ body {
 .blog-post {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.blog-form {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 50px;
+  border-radius: 16px;
+}
+
+.blog-form .blog-label {
+  margin-bottom: 10px;
+}
+
+.img-file-label {
+  margin: 0;
+  background-color: #ffffe0;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.blog-img {
+  display: inline-block;
+}
+.img-file-input {
+  margin: 0;
+  background: none;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.common-input {
+  border: none;
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.common-input:focus {
+  outline: none;
+}
+
+.body-input {
+  padding: 10px;
+  border: none;
+  font-size: 24px;
+  min-height: 200px;
+  min-width: 400px;
+}
+
+.body-input:focus {
+  outline: none;
+}
+
+.blog-button {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.blog-button button {
+  color: white;
+  font-weight: normal;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #2a52be;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

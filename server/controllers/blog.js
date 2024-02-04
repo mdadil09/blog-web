@@ -23,7 +23,7 @@ const getAllBlog = async (req, res) => {
 const getSingleBlog = async (req, res) => {
   try {
     const blogId = parseInt(req.params.id);
-    const result = await Blog.findOne({ id: blogId });
+    const result = await Blog.findOne({ _id: blogId });
     res.status(200).send(result);
   } catch (error) {
     console.log(error);

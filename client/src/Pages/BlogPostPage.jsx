@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { BlogState } from "../context/BlogProvider";
 
 const BlogPostPage = () => {
-  const [id, setId] = useState();
   const [title, setTitle] = useState();
   const [author, setAuthor] = useState();
   const [body, setBody] = useState();
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const { user } = BlogState();
 
@@ -22,7 +22,7 @@ const BlogPostPage = () => {
 
       const data = await axios.post(
         "http://localhost:5718/api/blogs/add",
-        { id, title, author, body },
+        { title, author, body },
         config
       );
 
@@ -31,49 +31,63 @@ const BlogPostPage = () => {
       console.log(error);
     }
   };
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
+
   return (
     <div className="blog-post">
       <div className="blog-form">
-        <div className="blog-id">
-          <label>Id:</label>
+        <div className="blog-img">
+          <label for="files" className="img-file-label">
+            Add Cover Image
+          </label>
           <input
-            type="text"
-            placeholder="enter your id"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
+            type="file"
+            placeholder="Add Cover Image"
+            className="img-file-input"
+            onChange={handleFileChange}
           />
         </div>
         <div className="blog-title">
-          <label>Title:</label>
-          <input
-            type="text"
-            placeholder="enter title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="Enter Blog Tiltle"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="common-input"
+            />
+          </div>
         </div>
         <div className="blog-author">
-          <label>Author:</label>
-          <input
-            type="text"
-            placeholder="enter author name"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="Enter Author Name"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              className="common-input"
+            />
+          </div>
         </div>
         <div className="blog-body">
-          <label>Body:</label>
-          <input
-            type="text"
-            placeholder="Write Something...."
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-          />
+          <div>
+            <textarea
+              type="text"
+              placeholder="Write Something...."
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+              className="body-input"
+            />
+          </div>
         </div>
         <div className="blog-button">
-          <button onClick={handleSubmit}>Submit</button>
+          <button onClick={handleSubmit}>Publish</button>
         </div>
       </div>
+      <div className="blog-guidlines">guide lines</div>
     </div>
   );
 };
